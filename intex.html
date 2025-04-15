@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Snake Game</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #1a1a1a;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+        #game-container {
+            text-align: center;
+            background: #2c2c2c;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        #gc {
+            border: 2px solid #444;
+            background: #000;
+            border-radius: 10px;
+            width: 300px; /* Fixed for mobile */
+            height: 300px;
+        }
+        #score, #high-score {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        #start-button, #pause-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        #start-button {
+            background: #4caf50;
+        }
+        #start-button:hover {
+            background: #45a049;
+        }
+        #pause-button {
+            background: #f0ad4e;
+        }
+        #pause-button:hover {
+            background: #ec971f;
+        }
+        #game-over {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        #controls {
+            display: grid;
+            grid-template-areas:
+                ". up ."
+                "left down right";
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .control-button {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            background: #555;
+            border: none;
+            border-radius: 10px;
+            font-size: 20px;
+            color: #fff;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+        .control-button:active {
+            background: #777;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="score">Score: 0</div>
+        <div id="high-score">High Score: 0</div>
+        <canvas id="gc"></canvas>
+        <div id="buttons">
+            <button id="start-button">Start Game</button>
+            <button id="pause-button" style="display: none;">Pause</button>
+        </div>
+        <div id="controls">
+            <button id="up" class="control-button">↑</button>
+            <button id="left" class="control-button">←</button>
+            <button id="down" class="control-button">↓</button>
+            <button id="right" class="control-button">→</button>
+        </div>
+        <div id="game-over">
+            <h2>Game Over</h2>
+            <p id="final-score">Score: 0</p>
+            <button id="restart-button">Restart</button>
+        </div>
+    </div>
+    <script src="snake.js"></script>
+</body>
+</html>
